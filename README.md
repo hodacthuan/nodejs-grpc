@@ -3,7 +3,7 @@
 -------
 **What is gRPC**
 -------
-A general RPC (Remote Procedure Call) framework over HTTP/2, initially developed at Google. gRPC is a language-neutral and platform-neutral framework that allows users to write applications where independent services can work with each other as if they were native. It uses Protocol Buffers as the interface description language.
+A general gRPC (Remote Procedure Call) framework over HTTP/2, initially developed at Google. gRPC is a language-neutral and platform-neutral framework that allows users to write applications where independent services can work with each other as if they were native. It uses Protocol Buffers as the interface description language.
 
 **Why we should use GRPC instead of Restfull API as a microservices communication?**
 -------
@@ -14,6 +14,27 @@ Early microservices implementations leveraged Representational State Transfer (R
 First, gRPC uses HTTP/2 which is, as you know, much faster than HTTP/1.1 used in REST by default. Note that today we can enable HTTP/2 in REST as well, but normally it often goes with HTTP/1.1. 
 
 Second, gRPC uses Protocol buffer to serialize payload data, which is binary and smaller, while REST uses JSON, which is text and larger.
+
+**Protobuf vs JSON**
+-------
+
+**Protobuf** Protocol Buffers was internally a better way, compared to XML, for data serialization -deserialization. So they focused on making it simpler, smaller, faster and more maintainable then XML. But, this protocol even surpassed JSON with better performance, better maintainability, and smaller size.  
+
+**JSON** (JavaScript Object Notation) is a lightweight data-interchange format and is based on a subset of the JavaScript Programming Language.
+
+**gRPC Communication Type**
+-------
+When working with gRPC we have 4 different types of communication between client and server. 
+## Unary RPCs: 
+Where the client sends a single request to the server and gets a single response back, just like a normal function call.
+
+## Server streaming RPCs
+Where the client sends a request to the server and gets a stream to read a sequence of messages back.
+## Client streaming RPCs
+Where the client writes a sequence of messages and sends them to the server, again using a provided stream.
+## Bidirectional streaming RPCs
+Where both sides send a sequence of messages using a read-write stream.
+
 
 **How to apply GRPC to Microservices Structure**
 -------
