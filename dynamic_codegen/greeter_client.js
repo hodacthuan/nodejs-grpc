@@ -41,6 +41,12 @@ function main() {
     user = 'world';
   }
   client.sayHello({ name: user }, function (err, response) {
+    if (err) {
+      console.log('ERROR HANDLING');
+      console.log('err.message', err.message);
+      console.log('err.code', err.code);
+      return;
+    }
     console.log('Greeting:', response.message);
   });
 }
