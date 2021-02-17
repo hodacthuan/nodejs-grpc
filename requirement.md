@@ -3,7 +3,6 @@
 gRPC principles? https://grpc.github.io/blog/principles  
 what are Protocol Buffers and how are they working with gRPC  
 gRPC communication types  
-
 gRPC development flow  
 gRPC error handling  
 gRPC middlewares  

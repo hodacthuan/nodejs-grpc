@@ -163,6 +163,15 @@ var call = client.recordRoute(function(error, stats) {
 
 
 
+**gRPC Error Handling**
+-------
+
+
+
+**gRPC Middlewares**
+-------
+
+
 **How to apply GRPC to Microservices Structure**
 -------
 Server
