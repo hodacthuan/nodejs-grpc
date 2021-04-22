@@ -51,6 +51,13 @@ message FetchMovieRequest {
     string name = 1;
 }
 ```
+The first line of the file specifies that you're using proto3 syntax
+
+The MovieItem message definition specifies three fields (name/value pairs), one for each piece of data that you want to include in this type of message. Each field has a name and a type.
+
+Each field in the message definition has a unique number. These field numbers are used to identify your fields in the message binary format, and should not be changed once your message type is in use. 
+
+
 **gRPC Communication Type**
 -------
 When working with gRPC we have 4 different types of communication between client and server. 
