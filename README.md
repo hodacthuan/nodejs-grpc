@@ -143,6 +143,9 @@ routeServer.bindAsync('0.0.0.0:50051', grpc.ServerCredentials.createInsecure(), 
 ```
 ## 6. Creating the client
 ```
+var client = new services.RouteGuideClient('localhost:50051',
+                                           grpc.credentials.createInsecure());
+
 var call = client.recordRoute(function(error, stats) {
   if (error) {
     callback(error);
@@ -198,13 +201,22 @@ In Client side load balancing, the client is aware of multiple backend servers a
 
 ![alt text](./readme/image_1.png)
 
-**gRPC Middlewares**
--------
+## 3. Envoy - Recomended GRPC Load Balancer
 
 
-**Testing gRPC Services**
--------
+```
+https://github.com/envoyproxy/envoy
+```
 
+
+![alt text](./readme/Envoy1.png)
+
+
+ADVANCED LOAD BALANCING
+
+Envoy supports advanced load balancing features including automatic retries, circuit breaking, global rate limiting, request shadowing, zone local load balancing, etc.
+
+![alt text](./readme/Envoy2.png)
 
 **Drawbacks of using gRPC**
 -------
