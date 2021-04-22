@@ -65,11 +65,15 @@ When working with gRPC we have 4 different types of communication between client
 Where the client sends a single request to the server and gets a single response back, just like a normal function call.
 
 ## Server streaming RPCs
-Where the client sends a request to the server and gets a stream to read a sequence of messages back.
+Where the client sends a request to the server and gets a stream to read a sequence of messages back. The client reads from the returned stream until there are no more messages. gRPC guarantees message ordering within an individual RPC call.
 ## Client streaming RPCs
-Where the client writes a sequence of messages and sends them to the server, again using a provided stream.
+Where the client writes a sequence of messages and sends them to the server, again using a provided stream. Once the client has finished writing the messages, it waits for the server to read them and return its response. Again gRPC guarantees message ordering within an individual RPC call.
 ## Bidirectional streaming RPCs
-Where both sides send a sequence of messages using a read-write stream.
+
+Where both sides send a sequence of messages using a read-write stream. 
+
+The two streams operate independently, so clients and servers can read and write in whatever order they like: for example, the server could wait to receive all the client messages before writing its responses, or it could alternately read a message then write a message, or some other combination of reads and writes. The order of messages in each stream is preserved.
+
 
 
 
